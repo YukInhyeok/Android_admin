@@ -1,0 +1,8 @@
+
+u	java:S135B"YReduce the total number of break and continue statements in this loop to use at most one.(€ËÄß8õË¬ÿ«1
+{	java:S135Š"YReduce the total number of break and continue statements in this loop to use at most one.(Ôì—ûúÿÿÿÿ8õË¬ÿ«1
+{	java:S135µ"YReduce the total number of break and continue statements in this loop to use at most one.(‰Û‹÷úÿÿÿÿ8öË¬ÿ«1
+t
+java:S3776u"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(­ì¡Õÿÿÿÿÿ8úÏ¬ÿ«1
+K
+java:S1905Š"(Remove this unnecessary cast to "float".(Ôì—ûúÿÿÿÿ8ıÏ¬ÿ«1
