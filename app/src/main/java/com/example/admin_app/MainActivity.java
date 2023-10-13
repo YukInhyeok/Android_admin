@@ -27,8 +27,11 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private int selectedHour = 0;
     private int selectedMinute = 0;
     private Button changeBtn;
+    private TextView score_text;
 
     //독후감 설정
     private TextView bWorkText;
@@ -79,11 +83,11 @@ public class MainActivity extends AppCompatActivity {
         //독후감 설정
         bWorkText = findViewById(R.id.b_work_text);
 
-        //모드 변경
-        modText = findViewById(R.id.mod_text);
-
-        //앱 사용시간
-        scrollTextView = findViewById(R.id.scrollTextView);
+//        //모드 변경
+//        modText = findViewById(R.id.mod_text);
+//
+//        //앱 사용시간
+//        scrollTextView = findViewById(R.id.scrollTextView);
 
         //일일차트
         BarChart barChart = findViewById(R.id.chart);
@@ -155,6 +159,27 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        // 차트 터치 이벤트
+        score_text = findViewById(R.id.score_text);
+        barChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                if (e instanceof BarEntry) {
+                    BarEntry barEntry = (BarEntry) e;
+                    float value = barEntry.getY();
+                    int intValue = Math.round(value);
+
+                    score_text.setTextSize(18);
+                    score_text.setText(String.valueOf(intValue) + "점");
+                }
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
         //독후감 설정
         bWorkText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 showBWorkPopup();
             }
         });
-        initLockModeListener();
+//        initLockModeListener();
     }
 
 
@@ -236,55 +261,55 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 // 통제 모드
-private void initLockModeListener() {
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-    db.collection("Screen").document("Lock")
-            .addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                @Override
-                public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
-                                    @Nullable FirebaseFirestoreException e) {
-                    if (e != null) {
-                        Log.w("MainActivity", "listen:error", e);
-                        return;
-                    }
-
-                    if (documentSnapshot != null && documentSnapshot.exists()) {
-                        int stateValue = documentSnapshot.getLong("state").intValue();
-                        if (stateValue == 1) {
-                            initTargetTimeListener();
-                            modText.setText("자유 모드");
-                            modText.setTextColor(Color.BLUE);
-                        } else {
-                            modText.setText("통제 모드");
-                            modText.setTextColor(Color.RED);
-                        }
-                    }
-                }
-            });
-        }
+//private void initLockModeListener() {
+//    FirebaseFirestore db = FirebaseFirestore.getInstance();
+//
+//    db.collection("Screen").document("Lock")
+//            .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+//                @Override
+//                public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
+//                                    @Nullable FirebaseFirestoreException e) {
+//                    if (e != null) {
+//                        Log.w("MainActivity", "listen:error", e);
+//                        return;
+//                    }
+//
+//                    if (documentSnapshot != null && documentSnapshot.exists()) {
+//                        int stateValue = documentSnapshot.getLong("state").intValue();
+//                        if (stateValue == 1) {
+//                            initTargetTimeListener();
+//                            modText.setText("자유 모드");
+//                            modText.setTextColor(Color.BLUE);
+//                        } else {
+//                            modText.setText("통제 모드");
+//                            modText.setTextColor(Color.RED);
+//                        }
+//                    }
+//                }
+//            });
+//        }
 
     // 앱 사용시간
-    private void initTargetTimeListener() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        db.collection("Time").document("TargetTime")
-                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
-                                        @Nullable FirebaseFirestoreException e) {
-                        if (e != null) {
-                            Log.w("MainActivity", "listen:error", e);
-                            return;
-                        }
-
-                        if (documentSnapshot != null && documentSnapshot.exists()) {
-                            String targetTime = documentSnapshot.getString("Ttime");
-                            scrollTextView.setText("자녀가 앱 사용을 완료하였습니다.\n앱 사용시간: " + targetTime + " 분");
-                        }
-                    }
-                });
-    }
+//    private void initTargetTimeListener() {
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//
+//        db.collection("Time").document("TargetTime")
+//                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
+//                                        @Nullable FirebaseFirestoreException e) {
+//                        if (e != null) {
+//                            Log.w("MainActivity", "listen:error", e);
+//                            return;
+//                        }
+//
+//                        if (documentSnapshot != null && documentSnapshot.exists()) {
+//                            String targetTime = documentSnapshot.getString("Ttime");
+//                            scrollTextView.setText("자녀가 앱 사용을 완료하였습니다.\n앱 사용시간: " + targetTime + " 분");
+//                        }
+//                    }
+//                });
+//    }
 
     private void fetchData(final BarChart barChart, final ArrayList<BarEntry> entries) {
         db.collection("Chart").orderBy("label")
@@ -320,8 +345,8 @@ private void initLockModeListener() {
         for (BarEntry entry : entries) {
             BarDataSet dataSet = new BarDataSet(Arrays.asList(entry), "");
 
-            int startColor = Color.parseColor("#ffc7ee");
-            int endColor = Color.parseColor("#a3ffeb");
+            int startColor = Color.parseColor("#FF003A");
+            int endColor = Color.parseColor("#FF006D");
             dataSet.setGradientColor(startColor, endColor);
 
             dataSet.setDrawValues(false); // 값 레이블 그리기 비활성화;
