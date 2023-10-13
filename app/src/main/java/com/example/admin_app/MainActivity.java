@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
     //앱 사용시간
     private TextView scrollTextView;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
