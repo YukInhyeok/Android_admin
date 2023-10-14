@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     //모드 변경
     private TextView modText;
     //앱 사용시간
-    private TextView scrollTextView;
+    private TextView app_use_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +84,10 @@ public class MainActivity extends AppCompatActivity {
         bWorkText = findViewById(R.id.b_work_text);
 
 //        //모드 변경
-//        modText = findViewById(R.id.mod_text);
+        modText = findViewById(R.id.mod_text);
 //
 //        //앱 사용시간
-//        scrollTextView = findViewById(R.id.scrollTextView);
+        app_use_time = findViewById(R.id.app_use_time);
 
         //일일차트
         BarChart barChart = findViewById(R.id.chart);
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                     float value = barEntry.getY();
                     int intValue = Math.round(value);
 
-                    score_text.setTextSize(18);
+
                     score_text.setText(String.valueOf(intValue) + "점");
                 }
             }
@@ -187,7 +187,8 @@ public class MainActivity extends AppCompatActivity {
                 showBWorkPopup();
             }
         });
-//        initLockModeListener();
+        initLockModeListener();
+        initTargetTimeListener();
     }
 
 
@@ -261,55 +262,54 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 // 통제 모드
-//private void initLockModeListener() {
-//    FirebaseFirestore db = FirebaseFirestore.getInstance();
-//
-//    db.collection("Screen").document("Lock")
-//            .addSnapshotListener(new EventListener<DocumentSnapshot>() {
-//                @Override
-//                public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
-//                                    @Nullable FirebaseFirestoreException e) {
-//                    if (e != null) {
-//                        Log.w("MainActivity", "listen:error", e);
-//                        return;
-//                    }
-//
-//                    if (documentSnapshot != null && documentSnapshot.exists()) {
-//                        int stateValue = documentSnapshot.getLong("state").intValue();
-//                        if (stateValue == 1) {
-//                            initTargetTimeListener();
-//                            modText.setText("자유 모드");
-//                            modText.setTextColor(Color.BLUE);
-//                        } else {
-//                            modText.setText("통제 모드");
-//                            modText.setTextColor(Color.RED);
-//                        }
-//                    }
-//                }
-//            });
-//        }
+private void initLockModeListener() {
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    db.collection("Screen").document("Lock")
+            .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
+                                    @Nullable FirebaseFirestoreException e) {
+                    if (e != null) {
+                        Log.w("MainActivity", "listen:error", e);
+                        return;
+                    }
+
+                    if (documentSnapshot != null && documentSnapshot.exists()) {
+                        int stateValue = documentSnapshot.getLong("state").intValue();
+                        if (stateValue == 1) {
+                            modText.setText("자유 모드");
+                            modText.setTextColor(Color.BLUE);
+                        } else {
+                            modText.setText("통제 모드");
+                            modText.setTextColor(Color.RED);
+                        }
+                    }
+                }
+            });
+        }
 
     // 앱 사용시간
-//    private void initTargetTimeListener() {
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//
-//        db.collection("Time").document("TargetTime")
-//                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
-//                    @Override
-//                    public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
-//                                        @Nullable FirebaseFirestoreException e) {
-//                        if (e != null) {
-//                            Log.w("MainActivity", "listen:error", e);
-//                            return;
-//                        }
-//
-//                        if (documentSnapshot != null && documentSnapshot.exists()) {
-//                            String targetTime = documentSnapshot.getString("Ttime");
-//                            scrollTextView.setText("자녀가 앱 사용을 완료하였습니다.\n앱 사용시간: " + targetTime + " 분");
-//                        }
-//                    }
-//                });
-//    }
+    private void initTargetTimeListener() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("Time").document("TargetTime")
+                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot documentSnapshot,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("MainActivity", "listen:error", e);
+                            return;
+                        }
+
+                        if (documentSnapshot != null && documentSnapshot.exists()) {
+                            long targetTime = documentSnapshot.getLong("Ttime");
+                            app_use_time.setText(targetTime + " 분");
+                        }
+                    }
+                });
+    }
 
     private void fetchData(final BarChart barChart, final ArrayList<BarEntry> entries) {
         db.collection("Chart").orderBy("label")
@@ -443,7 +443,10 @@ public class MainActivity extends AppCompatActivity {
                 leftAxis.setLabelCount(0, true);
 
                 YAxis rightYAxis = weeklyChart.getAxisRight();
-                rightYAxis.setDrawLabels(false);
+                rightYAxis.setDrawLabels(true);
+                rightYAxis.setGranularity(20f);
+                rightYAxis.setAxisMinimum(0f);
+                rightYAxis.setAxisMaximum(100f);
                 // 오른쪽 Y축 그리드 선 없애기
                 rightYAxis.setDrawGridLines(false);
                 leftAxis.setDrawAxisLine(false);

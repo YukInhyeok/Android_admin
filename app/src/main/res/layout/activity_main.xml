@@ -32,6 +32,7 @@
                         android:fontFamily="@font/pretendard"
                         android:text="AI와 함께하는 생활"
                         android:textSize="35dp"
+                        android:textStyle="bold"
                         android:textColor="@color/black"/>
             </LinearLayout>
         </LinearLayout>
@@ -50,17 +51,33 @@
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:padding="15dp"
-                    android:gravity="center"
                     android:background="@drawable/roundstyle10dp"
                     android:backgroundTint="@color/white"
                     android:elevation="50dp">
-                        <TextView
-                                android:id="@+id/score_text"
-                                android:layout_width="wrap_content"
-                                android:textSize="46dp"
-                                android:textColor="@color/black"
-                                android:layout_height="wrap_content"/>
-
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/pretendard"
+                        android:text="오늘의 점수">
+                </TextView>
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                <TextView
+                        android:id="@+id/score_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="90dp"
+                        android:fontFamily="@font/pretendard"
+                        android:textColor="@color/black"
+                        android:text="-"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:textSize="68sp">
+                </TextView>
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -84,6 +101,7 @@
                             android:fontFamily="@font/pretendard"
                             android:text="일일 차트"
                             android:textColor="#212529"
+                            android:textStyle="bold"
                             android:textSize="18sp"/>
                 </LinearLayout>
 
@@ -118,6 +136,7 @@
                         android:text="주간차트"
                         android:fontFamily="@font/pretendard"
                         android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="18sp"/>
 
                 <com.example.admin_app.chart.RoundedBarChart
@@ -132,6 +151,10 @@
         </LinearLayout>
         <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="200dp">
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="200dp"
                 android:orientation="vertical"
                 android:background="@drawable/roundstyle10dp"
@@ -144,6 +167,7 @@
                     android:fontFamily="@font/omnigodic"
                     android:text="통제하기"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     android:textColor="#212121"/>
 
             <TextView
@@ -155,7 +179,7 @@
                     android:fontFamily="@font/omnigodic"
                     android:text="시간 설정"
                     android:textColor="#212121"
-                    android:textSize="23sp"
+                    android:textSize="19sp"
                     android:textStyle="bold"/>
 
             <TextView
@@ -165,9 +189,9 @@
                     android:gravity="center_horizontal"
                     android:fontFamily="@font/omnigodic"
                     android:textColor="#212121"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:text="독후감 설정"
-                    android:textSize="23sp"
+                    android:textSize="19sp"
                     android:textStyle="bold"/>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -181,8 +205,81 @@
                     android:layout_gravity="center"
                     android:background="@drawable/btn"
                     android:textColor="#202C73"
+                    android:textStyle="bold"
                     android:layout_marginBottom="5dp"
                     android:textSize="12sp"/>
+        </LinearLayout>
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/roundstyle10dp"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginStart="20dp"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:elevation="50dp"
+                    >
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="핸드폰 사용량"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/pretendard"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="18sp">
+                </TextView>
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/phone_2"/>
+                    <TextView
+                            android:id="@+id/app_use_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:fontFamily="@font/pretendard"
+                            android:textSize="20sp"/>
+                </RelativeLayout>
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:layout_marginStart="10dp"
+                            android:paddingTop="10dp"
+                            android:fontFamily="@font/pretendard"
+                            android:text="핸드폰 잠금 상태"/>
+                    <TextView
+                            android:id="@+id/mod_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/pretendard"
+                            android:layout_gravity="center"
+                            android:textStyle="bold"
+                            android:layout_marginTop="10dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

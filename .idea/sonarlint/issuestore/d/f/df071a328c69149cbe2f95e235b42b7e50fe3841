@@ -1,52 +1,55 @@
 
-k
-java:S1192€"MDefine a constant instead of duplicating this literal "MainActivity" 7 times.(ù‹Ÿé8ö óë±1
 d
-java:S1192¤"FDefine a constant instead of duplicating this literal "label" 4 times.(çõº¤8ö óë±1
+java:S1192»"FDefine a constant instead of duplicating this literal "label" 4 times.(çõº¤8ãÆ”¿²1
+k
+java:S1192‚"MDefine a constant instead of duplicating this literal "MainActivity" 5 times.(ù‹Ÿé8äÆ”¿²1
 E
-java:S1604e"(Make this anonymous inner class a lambda(ñ”äÛ8ö óë±1
+java:S1604g"(Make this anonymous inner class a lambda(ñ”äÛ8åÆ”¿²1
 J
-java:S1604}"(Make this anonymous inner class a lambda(Ïë£ùÿÿÿÿ8ö óë±1
+java:S1604"(Make this anonymous inner class a lambda(Ïë£ùÿÿÿÿ8åÆ”¿²1
 K
-java:S1604ƒ"(Make this anonymous inner class a lambda(Ÿ ¹ÿÿÿÿÿ8ö óë±1
+java:S1604…"(Make this anonymous inner class a lambda(Ÿ ¹ÿÿÿÿÿ8æÆ”¿²1
 K
-java:S1604"(Make this anonymous inner class a lambda(Ïë£ùÿÿÿÿ8ö óë±1
+java:S1604’"(Make this anonymous inner class a lambda(Ïë£ùÿÿÿÿ8æÆ”¿²1
 K
-java:S1604–"(Make this anonymous inner class a lambda(Ÿ ¹ÿÿÿÿÿ8ö óë±1
+java:S1604˜"(Make this anonymous inner class a lambda(Ÿ ¹ÿÿÿÿÿ8æÆ”¿²1
 J
-java:S1604l"(Make this anonymous inner class a lambda(‡¤¹Ùüÿÿÿÿ8ö óë±1
+java:S1604n"(Make this anonymous inner class a lambda(‡¤¹Ùüÿÿÿÿ8æÆ”¿²1
 K
-java:S1604¡"(Make this anonymous inner class a lambda(« È¯ÿÿÿÿÿ8ö óë±1
+java:S1604¸"(Make this anonymous inner class a lambda(« È¯ÿÿÿÿÿ8æÆ”¿²1
 K
-java:S1604Â"(Make this anonymous inner class a lambda(ÖÈà¦úÿÿÿÿ8ö óë±1
+java:S1604Ù"(Make this anonymous inner class a lambda(ÖÈà¦úÿÿÿÿ8æÆ”¿²1
 F
-java:S1604Ê"(Make this anonymous inner class a lambda(¸ß¸¼8ö óë±1
+java:S1604á"(Make this anonymous inner class a lambda(¸ß¸¼8æÆ”¿²1
 K
-java:S1604ç"(Make this anonymous inner class a lambda(ïš³èúÿÿÿÿ8ö óë±1
-F
-java:S1604õ"(Make this anonymous inner class a lambda(Ğ±°Ô8ö óë±1
-F
-java:S1604’"(Make this anonymous inner class a lambda(Ğ±°Ô8ö óë±1
+java:S1604ş"(Make this anonymous inner class a lambda(ïš³èúÿÿÿÿ8æÆ”¿²1
 K
-java:S1604¦"(Make this anonymous inner class a lambda(¯‘àçúÿÿÿÿ8ö óë±1
+java:S1604½"(Make this anonymous inner class a lambda(¯‘àçúÿÿÿÿ8ö óë±1
 F
-java:S1604ù"(Make this anonymous inner class a lambda(­±æ×8ö óë±1
+java:S1604"(Make this anonymous inner class a lambda(­±æ×8ö óë±1
 K
-java:S1604»"(Make this anonymous inner class a lambda(¯‘àçúÿÿÿÿ8ö óë±1
+java:S1604Ò"(Make this anonymous inner class a lambda(¯‘àçúÿÿÿÿ8çÆ”¿²1
 _
-java:S2184¾"ACast one of the operands of this addition operation to a "float".(µ›ÓŞ8ö óë±1
+java:S2184Õ"ACast one of the operands of this addition operation to a "float".(µ›ÓŞ8ö óë±1
 _
-java:S2184ş"ACast one of the operands of this addition operation to a "float".(µ›ÓŞ8ö óë±1
+java:S2184•"ACast one of the operands of this addition operation to a "float".(µ›ÓŞ8íÆ”¿²1
+v	java:S116:"URename this field "score_text" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àöğ¬ûÿÿÿÿ8õÈ”¿²1
 y
-java:S1450:"WRemove the "bWorkBtn" field and declare it as a local variable in the relevant methods.(âêƒ§ùÿÿÿÿ8Ì¢óë±1
+java:S1450>"WRemove the "bWorkBtn" field and declare it as a local variable in the relevant methods.(âêƒ§ùÿÿÿÿ8ÿÈ”¿²1
 u
-java:S14506"XRemove the "changeBtn" field and declare it as a local variable in the relevant methods.(®§Ê8Ì¢óë±1
+java:S14509"XRemove the "changeBtn" field and declare it as a local variable in the relevant methods.(®§Ê8ÿÈ”¿²1
+X	java:S125W"<This block of commented-out lines of code should be removed.(î™ƒÕ8ŒÉ”¿²1
 Ÿ
-java:S1186Ì"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ı§„Ô8î¢óë±1
-Y
-java:S1117ò"6Rename "db" which hides the field declared at line 49.(ôï¼ÿúÿÿÿÿ8ô¢óë±1
-Y
-java:S1117"6Rename "db" which hides the field declared at line 49.(ôï¼ÿúÿÿÿÿ8÷¢óë±1
-Y	java:S125É"<This block of commented-out lines of code should be removed.(ËïçÏ8€£óë±1
+java:S1186²"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷”Öš8›É”¿²1
+Y	java:S125¾"<This block of commented-out lines of code should be removed.(ûùöø8ªÉ”¿²1
+Ÿ
+java:S1186ã"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ı§„Ô8µÉ”¿²1
+^	java:S125ˆ"<This block of commented-out lines of code should be removed.(Ñş–Æúÿÿÿÿ8ÀÉ”¿²1
+^	java:S125¥"<This block of commented-out lines of code should be removed.(‘Şãğøÿÿÿÿ8ÀÉ”¿²1
+Y	java:S125à"<This block of commented-out lines of code should be removed.(ËïçÏ8€£óë±1
+M
+java:S1068A"+Remove this unused "modText" private field.(İ²§Ôÿÿÿÿÿ8Ê”¿²1
+O
+java:S1068C"2Remove this unused "scrollTextView" private field.(Õèêë8Ê”¿²1
 N
-java:S1144¬"0Remove this unused private "showMessage" method.(ììÛé8Œ£óë±1
+java:S1144Ã"0Remove this unused private "showMessage" method.(ììÛé8Ê”¿²1
